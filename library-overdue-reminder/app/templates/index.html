@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>图书馆逾期提醒系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+  <h1>📚 图书馆借阅逾期自动提醒系统</h1>
+  <button id="btn-refresh">刷新数据</button>
+  <button id="btn-notify">一键发送逾期提醒</button>
+  <span id="notify-result"></span>
+</header>
+
+<main class="grid">
+  <section>
+    <h2>逾期列表</h2>
+    <table id="tbl-overdue">
+      <thead>
+        <tr><th>读者</th><th>邮箱</th><th>图书</th><th>到期日</th><th>逾期天数</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>新增用户</h2>
+    <form id="form-user">
+      <label>姓名 <input name="name" required></label>
+      <label>邮箱 <input name="email" type="email" required></label>
+      <label>电话 <input name="phone"></label>
+      <button type="submit">添加</button>
+    </form>
+
+    <h2>新增图书</h2>
+    <form id="form-book">
+      <label>书名 <input name="title" required></label>
+      <label>作者 <input name="author"></label>
+      <label>ISBN <input name="isbn"></label>
+      <button type="submit">添加</button>
+    </form>
+
+    <h2>借阅登记</h2>
+    <form id="form-borrow">
+      <label>用户ID <input name="user_id" type="number" required></label>
+      <label>图书ID <input name="book_id" type="number" required></label>
+      <label>借阅日 <input name="borrow_date" type="date" required></label>
+      <label>到期日 <input name="due_date" type="date" required></label>
+      <button type="submit">登记</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>借阅记录</h2>
+    <table id="tbl-borrows">
+      <thead>
+      <tr><th>ID</th><th>用户</th><th>图书</th><th>借阅日</th><th>到期日</th><th>状态</th><th>操作</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
